@@ -33,55 +33,70 @@ class NotificationScreen extends StatelessWidget {
               BackButtonItem()
           ],
         ),
-        body:Consumer<NotificationsProvider>(builder: (context, provider, child) {
-          return ListView.builder(
-            itemCount: 4,
-            itemBuilder: (context, index) {
-              if(index == 0){
-                return Padding(
-                  padding: const EdgeInsets.only(left:22,right: 22  ,top:22 ,bottom: 16),
-                  child: AppUtility.getText(AppStrings.newItems,22,Colors.white),
-                );
-              }else if(index == 1){
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount:provider.newItemsList.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: (){
-                        provider.setItemSelectedFromNewItemsList();
-                        provider.setIndexOfSelectedItem(index);
-                      },
-                      child: NotificationListItem(epesoidName: provider.newItemsList[index],
-                      isSelected: provider.indexOfSelectedItem==index&&provider.ItemSelectedFrom==AppStrings.newItems,
-                      ),
-                    );
-                  },);
-              }
-              else if(index ==2){
-                return Padding(
-                  padding: const EdgeInsets.only(left:22,right: 22  ,top:22 ,bottom: 16),
-                  child: AppUtility.getText(AppStrings.oldItems,22,Colors.white),
-                );
-              }else{
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount:provider.oldItemsList.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: (){
-                        provider.setItemSelectedFromOldItemsList();
-                        provider.setIndexOfSelectedItem(index);
-                      },
-                      child: NotificationListItem(epesoidName: provider.oldItemsList[index],
-                        isSelected: provider.indexOfSelectedItem==index&&provider.ItemSelectedFrom==AppStrings.oldItems,
-                      ),
-                    );
-                  },);
-              }
-            },
-          ) ;
-        },)
+        body:Consumer<NotificationsProvider>(
+          builder: (context, provider, child) {
+            // List of sections to display in the ListView
+            final List<Widget> sections = [
+              // New Items Title
+              Padding(
+                padding: const EdgeInsets.only(left: 22, right: 22, top: 22, bottom: 16),
+                child: AppUtility.getText(AppStrings.newItems, 22, Colors.white),
+              ),
+
+              // New Items List
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: provider.newItemsList.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      provider.setItemSelectedFromNewItemsList();
+                      provider.setIndexOfSelectedItem(index);
+                    },
+                    child: NotificationListItem(
+                      isSelected: provider.indexOfSelectedItem == index &&
+                          provider.ItemSelectedFrom == AppStrings.newItems,
+                      epesoidName: provider.newItemsList[index],
+                    ),
+                  );
+                },
+              ),
+
+              // Old Items Title
+              Padding(
+                padding: const EdgeInsets.only(left: 22, right: 22, top: 22, bottom: 16),
+                child: AppUtility.getText(AppStrings.oldItems, 22, Colors.white),
+              ),
+
+              // Old Items List
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: provider.oldItemsList.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      provider.setItemSelectedFromOldItemsList();
+                      provider.setIndexOfSelectedItem(index);
+                    },
+                    child: NotificationListItem(
+                      isSelected: provider.indexOfSelectedItem == index &&
+                          provider.ItemSelectedFrom == AppStrings.oldItems,
+                      epesoidName: provider.oldItemsList[index],
+                    ),
+                  );
+                },
+              ),
+            ];
+
+            // Generate the main ListView from the sections
+            return ListView.builder(
+              itemCount: sections.length,
+              itemBuilder: (context, index) => sections[index],
+            );
+          },
+        )
       ),
     );
   }

@@ -13,6 +13,10 @@ class NotificationsProvider extends ChangeNotifier{
     "مسلسل الغابه",
     "مسلسل الغابه",
     "مسلسل الغابه",
+    "مسلسل الغابه",
+    "مسلسل الغابه",
+    "مسلسل الغابه",
+    "مسلسل الغابه",
   ];
    setIndexOfSelectedItem(int index){
     indexOfSelectedItem = index;
