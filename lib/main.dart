@@ -1,5 +1,6 @@
 import 'package:aman_notification_screen/model/notifications_provider.dart';
 import 'package:aman_notification_screen/screens/notification_screen.dart';
+import 'package:aman_notification_screen/screens/story_reading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       locale: const Locale('ar'), // Set app locale to Arabic
       debugShowCheckedModeBanner: false,
-      home: NotificationScreen(),
+      home: StoryReading(),
     );
   }
 }

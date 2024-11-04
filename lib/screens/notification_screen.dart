@@ -29,7 +29,7 @@ class NotificationScreen extends StatelessWidget {
           centerTitle: true,
           title: AppUtility.getText(AppStrings.notifications, 22, Colors.white),
           actions: const [
-              BackButtonItem()
+              WhiteBackgroundBackButton()
           ],
         ),
         body:Consumer<NotificationsProvider>(
