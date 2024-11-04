@@ -4,7 +4,6 @@ import 'package:aman_notification_screen/reusable_items/back_button.dart';
 import 'package:aman_notification_screen/reusable_items/notification_list_item.dart';
 import 'package:aman_notification_screen/utilities/app_utility.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
@@ -57,7 +56,7 @@ class NotificationScreen extends StatelessWidget {
                     child: NotificationListItem(
                       isSelected: provider.indexOfSelectedItem == index &&
                           provider.ItemSelectedFrom == AppStrings.newItems,
-                      epesoidName: provider.newItemsList[index],
+                      notificationModel: provider.newItemsList[index],
                     ),
                   );
                 },
@@ -83,7 +82,7 @@ class NotificationScreen extends StatelessWidget {
                     child: NotificationListItem(
                       isSelected: provider.indexOfSelectedItem == index &&
                           provider.ItemSelectedFrom == AppStrings.oldItems,
-                      epesoidName: provider.oldItemsList[index],
+                      notificationModel: provider.oldItemsList[index],
                     ),
                   );
                 },
