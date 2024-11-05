@@ -21,7 +21,7 @@ class StoryReading extends StatelessWidget {
             elevation: 0,
             backgroundColor: Colors.transparent,
             leading: Container(
-              margin: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
               width: 34,
               height: 34,
               decoration: const BoxDecoration(
