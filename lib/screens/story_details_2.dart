@@ -1,16 +1,15 @@
 import 'dart:ui';
-
 import 'package:aman_notification_screen/model/app_strings.dart';
 import 'package:aman_notification_screen/utilities/app_utility.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../reusable_items/loading_item.dart';
 
-class StoryDetails extends StatelessWidget {
-  const StoryDetails();
+class StoryDetails2 extends StatelessWidget {
+  const StoryDetails2();
   @override
   Widget build(BuildContext context) {
     String storyImageUrl = AppStrings.storyImageUrl;
@@ -24,11 +23,11 @@ class StoryDetails extends StatelessWidget {
             backgroundColor: Colors.transparent,
             leading: Container(
               margin: const EdgeInsets.all(8),
-              width: MediaQuery.of(context).size.height * 34 / 812,
-              height: MediaQuery.of(context).size.height * 34 / 812,
-              decoration: const BoxDecoration(
+              width: 34.h,// MediaQuery.of(context).size.height * 34 / 812,
+              height: 34.w,//MediaQuery.of(context).size.height * 34 / 812,
+              decoration:  BoxDecoration(
                   color: Color.fromRGBO(0, 0, 0, 0.4),
-                  borderRadius: BorderRadius.all(Radius.circular(12))),
+                  borderRadius: BorderRadius.all(Radius.circular(9.r))),
               child: const Icon(
                 Icons.favorite_border_outlined,
                 color: Colors.white,
@@ -37,11 +36,11 @@ class StoryDetails extends StatelessWidget {
             actions: [
               Container(
                 margin: EdgeInsets.all(8),
-                width: MediaQuery.of(context).size.height * 34 / 812,
-                height: MediaQuery.of(context).size.height * 34 / 812,
-                decoration: const BoxDecoration(
+                width: 34.h,// MediaQuery.of(context).size.height * 34 / 812,
+                height: 34.w,//MediaQuery.of(context).size.height * 34 / 812,
+                decoration:  BoxDecoration(
                     color: Color.fromRGBO(0, 0, 0, 0.4),
-                    borderRadius: BorderRadius.all(Radius.circular(12))),
+                    borderRadius: BorderRadius.all(Radius.circular(9.r))),
                 child: const Icon(
                   Icons.arrow_forward,
                   color: Colors.white,
@@ -50,12 +49,12 @@ class StoryDetails extends StatelessWidget {
             ],
           ),
           backgroundColor: Colors.transparent,
-          body: Padding(
-            padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * (180 / 812),
-                right: 16,
-                left: 16),
-            child: SingleChildScrollView(
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: 180.h,// MediaQuery.of(context).size.height * (180 / 812),
+                  right: 16.w,
+                  left: 16.w),
               child: Column(
                 children: [
                   Row(
@@ -77,9 +76,9 @@ class StoryDetails extends StatelessWidget {
                         children: [
                           Padding(
                             padding:
-                                const EdgeInsets.only(bottom: 4.0, right: 14),
+                            EdgeInsets.only(bottom: 4.h, right: 14.w),
                             child: AppUtility.getText(
-                                'مغامرات مارتن', 26, Colors.white,
+                                'مغامرات مارتن', 24, Colors.white,
                                 fontWeight: FontWeight.w900),
                           ),
                           AppUtility.getText(
@@ -99,26 +98,25 @@ class StoryDetails extends StatelessWidget {
                     ],
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 22,bottom: 14),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    margin: EdgeInsets.only(top: 22.h,bottom: 14.h),
+                    padding:EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
                     decoration: BoxDecoration(
                         color: const Color.fromRGBO(22, 30, 39, 1.0),
-                        borderRadius: const BorderRadius.all(Radius.circular(16)),
+                        borderRadius:  BorderRadius.all(Radius.circular(16.r)),
                         border: Border.all(
                           color: const Color.fromRGBO(43, 152, 255, 0.3),
-                          width: 0.8,
+                          width: 0.8.w,
                         )),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        AppUtility.getText('الفصل الاول', 16, Colors.white),
+                        AppUtility.getText('الفصل الاول', 14, Colors.white),
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 14,),
+                          padding:  EdgeInsets.symmetric(vertical: 8.0.h,horizontal: 14.w,),
                           child: AppUtility.getText(
                               'تستند سلسلة الرسوم المتحركة الجديدة للأطفال والعائلة إلى سلسلة الكتب المدرسية الأكثر مبيعا في نيويورك تايمز "يوميات البومة" للمؤلفة. تستند سلسلة الرسوم المتحركة الجديدة للأطفال والعائلة إلى سلسلة الكتب المدرسية الأكثر مبيعا في نيويورك تايمز "يوميات البومة" للمؤلفة',
-                              14,
+                              12,
                               Colors.white,
                               textAlign: TextAlign.center,
                               fontWeight: FontWeight.normal),
@@ -128,110 +126,110 @@ class StoryDetails extends StatelessWidget {
                   ),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: AppUtility.getText('الابطال', 20, Colors.white,),
+                    child: AppUtility.getText('الابطال', 16, Colors.white,),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width/3.3,
+                    height: 120.h,//MediaQuery.of(context).size.width/3.3,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 8,
                       itemBuilder:(context, index) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                              height: MediaQuery.of(context).size.width*0.19,
-                            width: MediaQuery.of(context).size.width*0.2,
-                            margin:const EdgeInsets.symmetric(horizontal: 6)
-                            ,child: Image.asset('assets/avatar.png',height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
-                          ),
-                          AppUtility.getText('مارو',16,Colors.white,fontWeight: FontWeight.normal)
-                        ],
-                      );
-                    }, ),
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 72.h,//MediaQuery.of(context).size.width*0.19,
+                              width: 72.h,//MediaQuery.of(context).size.width*0.2,
+                              margin: EdgeInsets.symmetric(horizontal: 7.h)
+                              ,child: Image.asset('assets/avatar.png',height: double.infinity,width: double.infinity,fit: BoxFit.fill,),
+                            ),
+                            AppUtility.getText('مارو',14,Colors.white,fontWeight: FontWeight.normal)
+                          ],
+                        );
+                      }, ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       AppUtility.getText('المزيد', 15, Colors.blueAccent,),
-                      AppUtility.getText('الفصول', 20, Colors.white,),
+                      AppUtility.getText('الفصول', 16, Colors.white,),
                     ],
                   ),
                   Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.width/3.5,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 8,
-                          itemBuilder:(context, index) {
-                            return Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  height: MediaQuery.of(context).size.width*0.24,
-                                  width: MediaQuery.of(context).size.width*0.22,
-                                  margin:const EdgeInsets.symmetric(horizontal: 6),
-                                  decoration: BoxDecoration(
-                                    borderRadius:const BorderRadius.all(Radius.circular(16)),
-                                    border: Border.all(color: const Color.fromRGBO(73 , 75, 57, 1),width: 0.8,),),
-                                  child:ClipRRect(
-                                    borderRadius:
-                                    BorderRadiusDirectional.circular(16),
-                                    child: Stack(
-                                        alignment: Alignment.bottomCenter,
-                                        children:[
-                                          CachedNetworkImage(
-                                            imageUrl: (AppStrings.storyImageUrl),
-                                            height: double.infinity,
-                                            width: double.infinity,
-                                            fit: BoxFit.fill,
-                                            placeholder: (context, url) => Container(
-                                              child: LoadingShapes.circularShapSpinKit,
+                      alignment: Alignment.center,
+                      children: [
+                        SizedBox(
+                          height: 140.h,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 8,
+                            itemBuilder:(context, index) {
+                              return Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 100.h,//MediaQuery.of(context).size.width*0.24,
+                                    width: 86.w,//MediaQuery.of(context).size.width*0.22,
+                                    margin: EdgeInsets.symmetric(horizontal: 6.w),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(Radius.circular(16.r)),
+                                      border: Border.all(color: const Color.fromRGBO(73 , 75, 57, 1),width: 0.8.w,),),
+                                    child:ClipRRect(
+                                      borderRadius:
+                                      BorderRadiusDirectional.circular(16.r),
+                                      child: Stack(
+                                          alignment: Alignment.bottomCenter,
+                                          children:[
+                                            CachedNetworkImage(
+                                              imageUrl: (AppStrings.storyImageUrl),
+                                              height: double.infinity,
+                                              width: double.infinity,
+                                              fit: BoxFit.fill,
+                                              placeholder: (context, url) => Container(
+                                                child: LoadingShapes.circularShapSpinKit,
+                                              ),
                                             ),
-                                          ),
-                                          AppUtility.getText('الغابه${index+1}', 12, Colors.white)
-                                        ]
+                                            AppUtility.getText('الغابه${index+1}', 12, Colors.white)
+                                          ]
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            );
-                          }, ),
-                      ),
-                      GestureDetector(
-                        onTap: (){
-
-                        },
-                        child: Container(
-                          margin:const EdgeInsets.symmetric(horizontal: 16),
-                          height: 49,
-                          decoration: BoxDecoration(
-                            borderRadius:BorderRadius.all(Radius.circular(12)) ,
-                            gradient: LinearGradient(
-                              colors: [
-                                Color(0xFF2B98FF),
-                                Color(0xFF2163A1),
-                              ]
-                            )
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
+                                ],
+                              );
+                            }, ),
+                        ),
+                        GestureDetector(
+                          onTap: (){
+            
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 16.w),
+                            height: 48.h,
+                            decoration: BoxDecoration(
+                                borderRadius:BorderRadius.all(Radius.circular(12.r)) ,
+                                gradient: LinearGradient(
+                                    colors: [
+                                      Color(0xFF2B98FF),
+                                      Color(0xFF2163A1),
+                                    ]
+                                )
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
                                   'assets/icons/book.svg',
                                   color: Colors.white,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: AppUtility.getText('بدأ القراءة', 20, Colors.white),
-                              )
-                            ],
+                                ),
+                                Padding(
+                                  padding:  EdgeInsets.symmetric(horizontal: 8.0.w),
+                                  child: AppUtility.getText('بدأ القراءة', 18, Colors.white),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      )
-                    ]
+                        )
+                      ]
                   )
                 ],
               ),
@@ -249,13 +247,13 @@ class StoryDetailsBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: 375.w,
+        height: 812.h,
         color: Color(0xFF0E1720),
       ),
       SizedBox(
-          height: MediaQuery.of(context).size.height * 0.45,
-          width: MediaQuery.of(context).size.width,
+          height: 367.h,// MediaQuery.of(context).size.height * 0.45,
+          width: 375.w,
           child: StoryDetailsImage(imageUrl: storyImageUrl))
     ]);
   }
@@ -288,13 +286,13 @@ class StoryDetailsImage extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   stops: [
-                0.6,
-                0.9,
-              ],
+                    0.6,
+                    0.9,
+                  ],
                   colors: [
-                Color.fromRGBO(14, 23, 32, 0),
-                Color.fromRGBO(14, 23, 32, 1.0),
-              ])),
+                    Color.fromRGBO(14, 23, 32, 0),
+                    Color.fromRGBO(14, 23, 32, 1.0),
+                  ])),
         ),
       ],
     );
