@@ -1,5 +1,10 @@
 import 'package:aman_notification_screen/model/app_strings.dart';
 import 'package:aman_notification_screen/model/notifications_provider.dart';
+import 'package:aman_notification_screen/screens/account_analysis.dart';
+import 'package:aman_notification_screen/screens/account_info.dart';
+import 'package:aman_notification_screen/screens/account_settings.dart';
+import 'package:aman_notification_screen/screens/heros_quezz.dart';
+import 'package:aman_notification_screen/screens/heros_quezz_with_logic.dart';
 import 'package:aman_notification_screen/screens/story_details.dart';
 import 'package:aman_notification_screen/screens/story_details_2.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +52,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: StoryDetails2(),
+      child: AccountAnalysis(),
     );
   }
 }

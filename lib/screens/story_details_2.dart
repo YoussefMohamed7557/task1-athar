@@ -26,7 +26,7 @@ class StoryDetails2 extends StatelessWidget {
               width: 34.h,// MediaQuery.of(context).size.height * 34 / 812,
               height: 34.w,//MediaQuery.of(context).size.height * 34 / 812,
               decoration:  BoxDecoration(
-                  color: Color.fromRGBO(0, 0, 0, 0.4),
+                  color: const Color.fromRGBO(0, 0, 0, 0.4),
                   borderRadius: BorderRadius.all(Radius.circular(9.r))),
               child: const Icon(
                 Icons.favorite_border_outlined,
@@ -35,11 +35,11 @@ class StoryDetails2 extends StatelessWidget {
             ),
             actions: [
               Container(
-                margin: EdgeInsets.all(8),
+                margin: const EdgeInsets.all(8),
                 width: 34.h,// MediaQuery.of(context).size.height * 34 / 812,
                 height: 34.w,//MediaQuery.of(context).size.height * 34 / 812,
                 decoration:  BoxDecoration(
-                    color: Color.fromRGBO(0, 0, 0, 0.4),
+                    color: const Color.fromRGBO(0, 0, 0, 0.4),
                     borderRadius: BorderRadius.all(Radius.circular(9.r))),
                 child: const Icon(
                   Icons.arrow_forward,
